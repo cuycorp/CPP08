@@ -24,6 +24,7 @@
             | `std::map`      | Key → Value | Stores key-value pairs in **sorted order by key**; keys are unique                    |
             | `std::multimap` | Key → Value | Like `map`, but allows **duplicate keys**                                             |
 
+        * iterator: high level asbtraction that behaves like a pointer, but know how to traverse the particular container
         * All container support iterators, c.begin and c.end will work for all of them. 
             * c.begin: returns iterator/ pointer, pointing to the first element of the container. The value can be accessed dereferencing it.
             * c.end : return iterator pointing to one past the last element, its a non valid element, used for stop condition
@@ -35,6 +36,9 @@
 
 
     2. ex01 
+        * range of iterators: two iterators that define first and last. include first, exlclude last : [first, last)
+
+
 
 
 * Other definitions
