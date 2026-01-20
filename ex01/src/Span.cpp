@@ -5,7 +5,15 @@ Span::Span(int unsigned N) : _N(N)
 {
     std::cout << "Default constructor called" << std::endl;
     //how to initialize container generically
-    
+    /*
+    generalizze 
+    int arr[] = {1, 2, 3, 4};
+
+    std::vector<int> v(arr, arr + 4);
+    std::list<int>   l(arr, arr + 4);
+    std::set<int>    s(arr, arr + 4);
+
+    */
     return ;
 }
 
