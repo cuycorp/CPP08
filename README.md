@@ -6,7 +6,7 @@
         * standard containers
             * store collection of objects, handle memory automatically, insertion and deletion and access methods.
 
-            | Container     | Size Dynamic? | Access Method            | Memory Contiguous? | Notes / Iteration Method                      |
+| Container     | Size Dynamic? | Access Method            | Memory Contiguous? | Notes / Iteration Method                      |
 | ------------- | ------------- | ------------------------ | ------------------ | --------------------------------------------- |
 | `std::vector` | Yes           | `operator[]`, `.at()`    | Yes                | Random access; range-based for or iterators   |
 | `std::array`  | No (fixed)    | `operator[]`, `.at()`    | Yes                | Random access; range-based for or iterators   |
