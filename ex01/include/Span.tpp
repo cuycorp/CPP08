@@ -26,16 +26,20 @@ void Span::addNumber(const int &n)//check if n is t
     }
     else 
         throw std::runtime_error("No more space, all elements have been added !");
-
 }
+
 template < typename containerIterator>
 void Span::addNumber(containerIterator begin, containerIterator end)
 {
-    std::cout << "Adding elements: " << std::endl;
     for (containerIterator it = begin; it!= end; it++)
     {
-        std::cout << *it << std::endl;
-        v.push_back(*it);
+        if (getCap() < getN())
+        {
+            v.push_back(*it);
+            setCap(_nElements + 1);
+        }
+        else
+            throw std::runtime_error("No more space, all elements have been added !");
     }
 }
 
@@ -55,16 +59,17 @@ int Span::longestSpan(void) const //no numbers c.size
     return (range);
 }
 
-
 //getters and setters
 unsigned int Span::getN(void) const
 {
     return (_N);
 }
+
 unsigned int Span::getCap(void) const
 {
     return (_nElements);
 }
+
 void Span::setCap(unsigned int nElements)
 {
     _nElements = nElements;
