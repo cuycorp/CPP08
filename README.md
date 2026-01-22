@@ -2,29 +2,34 @@
 
 * Theory by level
     1. ex00
+        * stl: provide ready to use implementation of commonly used data structures known as containers, which are c holders of a collection of objects. The containers are implemented as class templates
+            * sequence containers: Linear data structure, elements can be accessed sequentially.
 
-        * standard containers
-            * store collection of objects, handle memory automatically, insertion and deletion and access methods.
+                | Container     | Size Dynamic? | Access Method            | Memory Contiguous? | Notes / Iteration Method                      |
+                | ------------- | ------------- | ------------------------ | ------------------ | --------------------------------------------- |
+                | `std::vector` | Yes           | `operator[]`, `.at()`    | Yes                | Random access; range-based for or iterators   |
+                | `std::array`  | No (fixed)    | `operator[]`, `.at()`    | Yes                | Random access; range-based for or iterators   |
+                | `std::list`   | Yes           | `.front()`, `.back()`    | No (linked list)   | Only sequential access; iterators required    |
+                | `std::deque`  | Yes           | `operator[]`, `.at()`    | Partially          | Random access; iterators, push_front possible |
 
-            | Container     | Size Dynamic? | Access Method            | Memory Contiguous? | Notes / Iteration Method                      |
-            | ------------- | ------------- | ------------------------ | ------------------ | --------------------------------------------- |
-            | `std::vector` | Yes           | `operator[]`, `.at()`    | Yes                | Random access; range-based for or iterators   |
-            | `std::array`  | No (fixed)    | `operator[]`, `.at()`    | Yes                | Random access; range-based for or iterators   |
-            | `std::list`   | Yes           | `.front()`, `.back()`    | No (linked list)   | Only sequential access; iterators required    |
-            | `std::deque`  | Yes           | `operator[]`, `.at()`    | Partially          | Random access; iterators, push_front possible |
-            | `std::set`    | Yes           | N/A (ordered)            | No                 | Iterators only; unique keys                   |
-            | `std::map`    | Yes           | `.at(key)`, `operator[]` | No                 | Iterators; key-value pairs                    |
+            * associative containers: store elements in sorted order to permit fast retrieval, based on keys. Associative because each element is associated to a key.
 
-        * associative containers: store elements in sorted order to permit fasta retrieval, based on keys. Associative because each element is associated to a key.
+                | Container       | Key / Value | Notes                                                 |
+                | --------------- | ----------- | ----------------------------------------------------- |
+                | `std::set`      | Key only    | Stores unique elements in **sorted order**; no duplicates; access by key; fast lookup |
+                | `std::multiset` | Key only    | Like `set`, but allows **duplicates**                                                 |
+                | `std::map`      | Key → Value | Stores key-value pairs in **sorted order by key**; keys are unique                    |
+                | `std::multimap` | Key → Value | Like `map`, but allows **duplicate keys**                                             |
+            * container adapters: is not a container type itself, but a wrapper around an existing container that provides restricted interface for a specific use case.
 
-            | Container       | Key / Value | Notes                                                 |
-            | --------------- | ----------- | ----------------------------------------------------- |
-            | `std::set`      | Key only    | Stores unique elements in **sorted order**; no duplicates; access by key; fast lookup |
-            | `std::multiset` | Key only    | Like `set`, but allows **duplicates**                                                 |
-            | `std::map`      | Key → Value | Stores key-value pairs in **sorted order by key**; keys are unique                    |
-            | `std::multimap` | Key → Value | Like `map`, but allows **duplicate keys**                                             |
+                | Adapter Name          | Behavior                     | Default Underlying Container |
+                | --------------------- | ---------------------------- | ---------------------------- |
+                | `std::stack`          | LIFO (Last In First Out)     | `std::deque`                 |
+                | `std::queue`          | FIFO (First In First Out)    | `std::deque`                 |
+                | `std::priority_queue` | Keeps largest element on top | `std::vector`                |
 
-        * iterator: high level asbtraction that behaves like a pointer, but know how to traverse the particular container
+
+        * iterator: High level asbtraction that behaves like a pointer, but know how to traverse the particular container
         * All container support iterators, c.begin and c.end will work for all of them. 
             * c.begin: returns iterator/ pointer, pointing to the first element of the container. The value can be accessed dereferencing it.
             * c.end : return iterator pointing to one past the last element, its a non valid element, used for stop condition
