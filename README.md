@@ -1,8 +1,7 @@
 # CPP08
 
-* Theory by level
-    1. ex00
-        * stl: provide ready to use implementation of commonly used data structures known as containers, which are c holders of a collection of objects. The containers are implemented as class templates
+* Theory 
+        * stl library: provide ready to use implementation of commonly used data structures known as containers, which are c holders of a collection of objects. The containers are implemented as class templates
             * sequence containers: Linear data structure, elements can be accessed sequentially.
 
                 | Container     | Size Dynamic? | Access Method            | Memory Contiguous? | Notes / Iteration Method                      |
@@ -40,8 +39,11 @@
             * c. max_size: maximum possible size
 
 
+    * Theory by level
+    1. ex00
+        * container iterators and templatres
     2. ex01 
-        * range of iterators: two iterators that define first and last. include first, exlclude last : [first, last)
+        * initializing a vector, filling up  a vector, copying a container into a vector
 
     3. ex02
         * stack
