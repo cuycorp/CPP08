@@ -46,7 +46,9 @@
         * initializing a vector, filling up  a vector, copying a container into a vector
 
     3. ex02
-        * stack
+        * stack 
+            * why is the stack non iterable? 
+
 
 
 * Other definitions
