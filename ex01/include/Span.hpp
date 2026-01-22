@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-class Span
+class Span 
 {
     private:
         std::vector<int> v;
