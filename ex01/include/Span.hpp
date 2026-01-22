@@ -10,16 +10,18 @@ class Span
         std::vector<int> v;
         unsigned int _N;
         unsigned int _nElements;
-        
+
     public:
         Span(int unsigned N);
         ~Span();
 
         //member functions
         void addNumber(const int &n); //check if n is t
+        template < typename containerIterator>
+        void addNumber(containerIterator begin, containerIterator end);
+
         int shortestSpan(void) const;
         int longestSpan(void) const; //no numbers c.size
-        void addNumber(containerT::iterator begin, containerT::iterator end);
 
         //getters and setters
         unsigned int getN(void) const;
@@ -27,5 +29,6 @@ class Span
         void setCap(unsigned int nElements);
 };
 
+#include "Span.tpp"
 #endif
 

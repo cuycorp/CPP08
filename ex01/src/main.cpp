@@ -1,16 +1,37 @@
 #include "Span.hpp"
+#include "vector"
+
+#define RESET   "\033[0m"
+#define PINK    "\033[35m"
+
 
 int main()
 {
+    std::cout << PINK << "Testing addNumber, which adds element by element" <<  RESET << std::endl;
+    Span sp = Span(5);
+    sp.addNumber(6);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
+    std::cout << "passed \n" ;
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
+    std::cout << std::endl;
 
-Span sp = Span(5);
-sp.addNumber(6);
-sp.addNumber(3);
-sp.addNumber(17);
-sp.addNumber(9);
-sp.addNumber(11);
-std::cout << "passed \n" ;
-std::cout << sp.shortestSpan() << std::endl;
-std::cout << sp.longestSpan() << std::endl;
-return 0;
+    std::cout << PINK <<"Testing addNumber, which adds element from container" << RESET << std::endl;
+    int arr[] = {0, 23, 1, 5};
+    std::vector<int> va(arr, arr + 4);
+
+    std::cout << "printing test vector: " << std::endl;
+    for (std::vector<int>::iterator i = va.begin(); i!=va.end(); i++)
+        std::cout <<  *i << " ";
+
+    std::cout << std::endl;
+    Span sp1 = Span(4);
+    sp1.addNumber(va.begin(), va.end());
+    std::cout << "passed \n" ;
+    std::cout << sp1.shortestSpan() << std::endl;
+    std::cout << sp1.longestSpan() << std::endl;
+    return 0;
 }

@@ -28,11 +28,15 @@ void Span::addNumber(const int &n)//check if n is t
         throw std::runtime_error("No more space, all elements have been added !");
 
 }
-template < typename containerT>
-void Span::addNumber(containerT::iterator begin, containerT::iterator end)
+template < typename containerIterator>
+void Span::addNumber(containerIterator begin, containerIterator end)
 {
-    for (it = begin; it!= end; it++)
-        v.push_back(*begin);
+    std::cout << "Adding elements: " << std::endl;
+    for (containerIterator it = begin; it!= end; it++)
+    {
+        std::cout << *it << std::endl;
+        v.push_back(*it);
+    }
 }
 
 int Span::shortestSpan(void) const
