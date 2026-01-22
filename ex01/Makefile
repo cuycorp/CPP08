@@ -7,10 +7,10 @@ IFLAGS = -I include
 FLAGS = -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
 
 #Header files
-HDRS = include/easyfind.hpp
+HDRS = include/Span.hpp
 
 #Source files
-SRCS = src/main.cpp 
+SRCS = src/main.cpp  src/Span.cpp
 
 #Object file
 

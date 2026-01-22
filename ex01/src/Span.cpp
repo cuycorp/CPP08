@@ -1,19 +1,10 @@
 #include "Span.hpp"
+#include <algorithm>
 
 // Default constructor
-Span::Span(int unsigned N) : _N(N)
+Span::Span(int unsigned N) : _N(N), _nElements(0)
 {
     std::cout << "Default constructor called" << std::endl;
-    //how to initialize container generically
-    /*
-    generalizze 
-    int arr[] = {1, 2, 3, 4};
-
-    std::vector<int> v(arr, arr + 4);
-    std::list<int>   l(arr, arr + 4);
-    std::set<int>    s(arr, arr + 4);
-
-    */
     return ;
 }
 
@@ -25,13 +16,52 @@ Span::~Span(void)
 }
 
 //member functions
-addNumber(const int n)
+
+void Span::addNumber(const int &n)//check if n is t
 {
+    if (getCap() < getN())
+    {
+        v.push_back(n);
+        setCap(_nElements + 1);
+    }
+    else 
+        throw std::runtime_error("No more space, all elements have been added !");
 
 }
-int shortestSpan(void) const
-{}
-int longestSpan(void) const
-{}
-void addFromContainer(containerT::iterator begin, containerT::iterator end)
-{}
+template < typename containerT>
+void Span::addNumber(containerT::iterator begin, containerT::iterator end)
+{
+    for (it = begin; it!= end; it++)
+        v.push_back(*begin);
+}
+
+int Span::shortestSpan(void) const
+{
+    std::vector<int> copy(v);
+    std::sort(copy.begin(), copy.end());
+    int range = *(copy.begin() + 1) - *(copy.begin());
+    return (range);
+}
+
+int Span::longestSpan(void) const //no numbers c.size
+{
+    std::vector<int> copy(v);
+    std::sort(copy.begin(), copy.end());
+    int range = *(copy.end() - 1) - *(copy.begin());
+    return (range);
+}
+
+
+//getters and setters
+unsigned int Span::getN(void) const
+{
+    return (_N);
+}
+unsigned int Span::getCap(void) const
+{
+    return (_nElements);
+}
+void Span::setCap(unsigned int nElements)
+{
+    _nElements = nElements;
+}
