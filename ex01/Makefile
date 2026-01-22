@@ -10,7 +10,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
 HDRS = include/Span.hpp
 
 #Source files
-SRCS = src/main.cpp  src/Span.cpp
+SRCS = src/main.cpp 
 
 #Object file
 
