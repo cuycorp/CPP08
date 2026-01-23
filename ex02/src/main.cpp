@@ -1,5 +1,9 @@
 #include "MutantStack.hpp"
 
+#define RESET   "\033[0m"
+#define PINK    "\033[35m"
+#define RED     "\033[31m"
+
 int main()
 {
     MutantStack<int>  mstack;
@@ -30,7 +34,25 @@ int main()
     }
     std::cout << "Current stack top: " << mstack.top() << std::endl;
 
+    
+    
     //Copy constructor
-    std::stack<int> s(mstack);
+    std::cout << PINK <<"\nTesting deep copy of copy constructor" << RESET << std::endl;
+
+    MutantStack<int> copy(mstack);
+    copy.pop();
+
+    std::cout << "Original size: " << mstack.size() << std::endl;
+    std::cout << "Copy size: " << copy.size() << std::endl;
+
+    std::cout << PINK <<"\nTesting deep copy of assigment constructor" << RESET << std::endl;
+    
+    MutantStack<int> assign;
+    assign = mstack;
+    assign.pop();
+
+    std::cout << "Original size: " << mstack.size() << std::endl;
+    std::cout << "Assigned size: " << assign.size() << std::endl;
+
     return 0;
 }

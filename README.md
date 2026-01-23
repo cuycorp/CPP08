@@ -5,8 +5,8 @@
         * sequence containers: Linear data structure, elements can be accessed sequentially.
             | Container     | Size Dynamic? | Access Method            | Memory Contiguous? | Notes / Iteration Method                      |
             | ------------- | ------------- | ------------------------ | ------------------ | --------------------------------------------- |
-            | `std::vector` | Yes           | `operator[]`, `.at()`    | Yes                | Random access; range-based for or iterators   |
-            | `std::array`  | No (fixed)    | `operator[]`, `.at()`    | Yes                | Random access; range-based for or iterators   |
+            | `std::vector` | Yes           | `operator[]`, `.at()`    | Yes. Memory allocated on the heap (dynamic memory)                | Random access; range-based for or iterators   |
+            | `std::array`  | No (fixed)    | `operator[]`, `.at()`    | Yes. Memory allocated on the stack(size must be known at compile time)                | Random access; range-based for or iterators   |
             | `std::list`   | Yes           | `.front()`, `.back()`    | No (linked list)   | Only sequential access; iterators required    |
             | `std::deque`  | Yes           | `operator[]`, `.at()`    | Partially          | Random access; iterators, push_front possible |
         * associative containers: store elements in sorted order to permit fast retrieval, based on keys. Associative because each element is associated to a key.
@@ -41,18 +41,17 @@
         * initializing a vector, filling up  a vector, copying a container into a vector
 
     3. ex02
-        * stack 
-            * why is the stack non iterable? 
+        * stack, accesing its container functionality by accesing its underlying container
 
 
 
 * Resources
     * redifining stack : https://stackoverflow.com/questions/525365/does-stdstack-expose-iterators
 
+* Other concepts
+    * Run time: source code is converted in to an executable
+    * Compile time: when executable code is running
 
-* Pseudo code
-    1. implement function template that takes to types of parameters, second predefined as int. first one would receive containers, and second is an element ot find in the container. 
-        * go over a container and search for element
 
 --------
 Pending: implement OCF on ex01

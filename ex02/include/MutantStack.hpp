@@ -11,29 +11,29 @@ class MutantStack : public std::stack <T>
         //OCF
         MutantStack(void){}
 
-        MutantStack(const MutantStack& other)
-        {
-            std::cout << "Copy constructor called" << std::endl;
-            (void) other;
-            return ;
-        }
+        MutantStack(const MutantStack& other) : std::stack<T>(other){}
 
         MutantStack &operator=(const MutantStack &other)
         {
-            std::cout << "Assignment operator called" << std::endl;
-            (void) other;
+            std::stack<T>::operator=(other);
             return (*this);
         }
         ~MutantStack(){}
 
         typedef typename std::stack<T>::container_type::iterator iterator;
+        typedef typename std::stack<T>::container_type::const_iterator constIterator;
 
         iterator begin(void){return this->c.begin();}
         iterator end(void){return this->c.end();}
-
-
+        constIterator begin(void) const {return this->c.cbegin();}
+        constIterator end(void) const {return this->c.cend();}
 };
 
 
 #endif
 
+//check assigment and copy with past excercises
+/*
+How does the stack memory work
+How is array memory management different than 
+*/
