@@ -2,32 +2,38 @@
 # define MUTANTSTACK_HPP
 # include <iostream>
 # include  <stack>
+#include <vector>
 
 template <typename T>
-class MutantStack: public std::stack
+class MutantStack : public std::stack <T>
 {
-    private:
-        std::stack<T> st;
     public:
         //OCF
-        MutantStack(void);
-        MutantStack(const MutantStack& other);
-        MutantStack &operator=(const MutantStack &other);
-        ~MutantStack();
+        MutantStack(void){}
 
-        //member functions of stack --> find out
-        //add iterator as feature
-        begin() const;
-        end() const;
+        MutantStack(const MutantStack& other)
+        {
+            std::cout << "Copy constructor called" << std::endl;
+            (void) other;
+            return ;
+        }
 
-        /*
-        1. use templates to define :
-        iterator : *int, or any number storage, --> template <typename num>
-        define template and then pointer to template
-        2. change base constructor of stack to vector
-        Stack = std::stack< Number, UnderlyingContainer>;
-        */
+        MutantStack &operator=(const MutantStack &other)
+        {
+            std::cout << "Assignment operator called" << std::endl;
+            (void) other;
+            return (*this);
+        }
+        ~MutantStack(){}
+
+        typedef typename std::stack<T>::container_type::iterator iterator;
+
+        iterator begin(void){return this->c.begin();}
+        iterator end(void){return this->c.end();}
+
+
 };
+
 
 #endif
 
