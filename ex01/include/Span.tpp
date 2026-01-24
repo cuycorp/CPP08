@@ -17,7 +17,7 @@ Span::~Span(void)
 
 //member functions
 
-void Span::addNumber(const int &n)//check if n is t
+void Span::addNumber(const int &n)
 {
     if (getCap() < getN())
     {
@@ -45,18 +45,32 @@ void Span::addNumber(containerIterator begin, containerIterator end)
 
 int Span::shortestSpan(void) const
 {
-    std::vector<int> copy(v);
-    std::sort(copy.begin(), copy.end());
-    int range = *(copy.begin() + 1) - *(copy.begin());
-    return (range);
+    if (v.size() == 0 || v.size() == 1)
+    {
+        throw std::runtime_error("No valid range value!");
+    }
+    else
+    {
+        std::vector<int> copy(v);
+        std::sort(copy.begin(), copy.end());
+        int range = *(copy.begin() + 1) - *(copy.begin());
+        return (range);
+    }
 }
 
 int Span::longestSpan(void) const //no numbers c.size
 {
-    std::vector<int> copy(v);
-    std::sort(copy.begin(), copy.end());
-    int range = *(copy.end() - 1) - *(copy.begin());
-    return (range);
+    if (v.size() == 0 || v.size() == 1)
+    {
+        throw std::runtime_error("No valid range value!");
+    }
+    else
+    {
+        std::vector<int> copy(v);
+        std::sort(copy.begin(), copy.end());
+        int range = *(copy.end() - 1) - *(copy.begin());
+        return (range);
+    }
 }
 
 //getters and setters

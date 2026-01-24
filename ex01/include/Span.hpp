@@ -16,12 +16,12 @@ class Span
         ~Span();
 
         //member functions
-        void addNumber(const int &n); //check if n is t
+        void addNumber(const int &n); 
         template < typename containerIterator>
         void addNumber(containerIterator begin, containerIterator end);
 
         int shortestSpan(void) const;
-        int longestSpan(void) const; //no numbers c.size
+        int longestSpan(void) const; 
 
         //getters and setters
         unsigned int getN(void) const;

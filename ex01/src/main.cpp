@@ -69,5 +69,19 @@ int main()
     std::cout << "Longest span: " << spLarge.longestSpan() << std::endl;
     std::cout << std::endl;
 
+
+
+    std::cout << PINK <<"Testing shortest and longest span, non valid range" << RESET << std::endl;
+    Span empty = Span(0);
+    try 
+    {
+        std::cout << "Shortest span: " << empty.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << empty.longestSpan() << std::endl;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
+    }
+
     return 0;
 }
