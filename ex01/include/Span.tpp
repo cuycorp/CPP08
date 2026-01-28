@@ -1,29 +1,43 @@
 #include "Span.hpp"
+/*for sort*/
 #include <algorithm>
+/*for int limits*/
+#include <limits.h>
 
-// Default constructor
-Span::Span(int unsigned N) : _N(N), _nElements(0)
+//OCD
+Span::Span(int unsigned N) : _N(N)
 {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
     return ;
 }
 
-// Destructor
+Span::Span(const Span& other): v(other.v),_N(other._N)
+{
+    return ;
+}
+
+Span & Span::operator=(const Span &other)
+{
+    if (this != &other)
+    {
+        v = other.v;
+        _N = other._N;
+    }
+    return (*this);
+}
+
 Span::~Span(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
     return ;
 }
 
-//member functions
 
+//Member functions
 void Span::addNumber(const int &n)
 {
-    if (getCap() < getN())
-    {
+    if (v.size() < getN())
         v.push_back(n);
-        setCap(_nElements + 1);
-    }
     else 
         throw std::runtime_error("No more space, all elements have been added !");
 }
@@ -33,11 +47,8 @@ void Span::addNumber(containerIterator begin, containerIterator end)
 {
     for (containerIterator it = begin; it!= end; it++)
     {
-        if (getCap() < getN())
-        {
+        if (v.size() < getN())
             v.push_back(*it);
-            setCap(_nElements + 1);
-        }
         else
             throw std::runtime_error("No more space, all elements have been added !");
     }
@@ -77,14 +88,4 @@ int Span::longestSpan(void) const //no numbers c.size
 unsigned int Span::getN(void) const
 {
     return (_N);
-}
-
-unsigned int Span::getCap(void) const
-{
-    return (_nElements);
-}
-
-void Span::setCap(unsigned int nElements)
-{
-    _nElements = nElements;
 }

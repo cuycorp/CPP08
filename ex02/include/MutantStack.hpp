@@ -32,8 +32,5 @@ class MutantStack : public std::stack <T>
 
 #endif
 
-//check assigment and copy with past excercises
-/*
-How does the stack memory work
-How is array memory management different than 
-*/
+
+

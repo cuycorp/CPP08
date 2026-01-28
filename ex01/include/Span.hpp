@@ -9,10 +9,11 @@ class Span
     private:
         std::vector<int> v;
         unsigned int _N;
-        unsigned int _nElements;
 
     public:
         Span(int unsigned N);
+        Span(const Span& other);
+        Span &operator=(const Span &other);
         ~Span();
 
         //member functions
@@ -25,8 +26,6 @@ class Span
 
         //getters and setters
         unsigned int getN(void) const;
-        unsigned int getCap(void) const;
-        void setCap(unsigned int nElements);
 };
 
 #include "Span.tpp"

@@ -51,10 +51,10 @@ int main()
     std::cout << "longest span: " << sp1.longestSpan() << std::endl;
     std::cout << std::endl;
 
-    std::cout << PINK << "Testing Span with 10,000 random numbers" << RESET << std::endl;
+    std::cout << PINK << "Testing Span with 20,000 random numbers" << RESET << std::endl;
     std::srand(std::time(NULL));
-    const int LARGE_SIZE = 10000;
-    Span spLarge(500);
+    const int LARGE_SIZE = 30000;
+    Span spLarge(20000);
 
     try
     {
@@ -77,6 +77,30 @@ int main()
     {
         std::cout << "Shortest span: " << empty.shortestSpan() << std::endl;
         std::cout << "Longest span: " << empty.longestSpan() << std::endl;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
+    }
+
+    std::cout << PINK <<"Testing range for 1 element" << RESET << std::endl;
+    Span spanOne = Span(1);
+    try 
+    {
+        std::cout << "Shortest span: " << spanOne.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << spanOne.longestSpan() << std::endl;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
+    }
+
+    std::cout << PINK <<"Testing range for 0 elements" << RESET << std::endl;
+    Span spanZero = Span(0);
+    try 
+    {
+        std::cout << "Shortest span: " << spanZero.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << spanZero.longestSpan() << std::endl;
     }
     catch(std::exception &e)
     {
