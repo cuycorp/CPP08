@@ -19,17 +19,3 @@ bool ft_easyfind(const containerT& container, int elem)
 
 #endif
 
-
-/*
-from: 
-bool ft_easyfind(containerT container, int elem)
-to:
-bool ft_easyfind(const containerT& container, int elem)
-to avoid copying 
-
-...
-containerT container (by value): copy of container is made, function works on the copy
-containerT& container (non-const reference): direct access to original container, to modify
-const containerT container (const copy): read only copy 
-const containerT& container: non read and non copy 
-*/
