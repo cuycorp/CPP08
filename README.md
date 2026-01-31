@@ -51,6 +51,11 @@
 * Other concepts
     * Run time: source code is converted in to an executable
     * Compile time: when executable code is running
+    * Const and reference use :
+        * containerT container (by value): copy of container is made, function works on the copy
+        * containerT& container (non-const reference): direct access to original container, to modify
+        * const containerT container (const copy): read only copy 
+        * const containerT& container: non read and non copy 
 
 
 --------
