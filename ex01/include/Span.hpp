@@ -17,7 +17,7 @@ class Span
         ~Span();
 
         //member functions
-        void addNumber(const int &n); 
+        void addNumber(const long long &n); 
         template < typename containerIterator>
         void addNumber(containerIterator begin, containerIterator end);
 
@@ -26,6 +26,8 @@ class Span
 
         //getters and setters
         unsigned int getN(void) const;
+        void printAllMembers(void) const;
+        int getSizeVector(void) const;
 };
 
 #include "Span.tpp"

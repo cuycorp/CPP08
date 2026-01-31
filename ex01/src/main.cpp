@@ -30,18 +30,19 @@ int main()
     }
     std::cout << std::endl;
 
+
+
     std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
 	std::cout << PINK << "/*        Testing addNumber, which adds element from container                */" << RESET << std::endl;
 	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
     int arr[] = {0, 23, 1, 5};
     std::vector<int> va(arr, arr + 4);
-
     std::cout << "printing test vector: " << std::endl;
     for (std::vector<int>::iterator i = va.begin(); i!=va.end(); i++)
-        std::cout <<  *i << " ";
+      std::cout <<  *i << " ";
     std::cout << std::endl;
-
-    Span sp1 = Span(3);
+    Span sp1(3);
+    
     try 
     {
         sp1.addNumber(va.begin(), va.end());
@@ -52,33 +53,19 @@ int main()
     {
         std::cout << RED << "Caught: " << e.what() << RESET<< std::endl;
     }
-
+    std::cout << "Elements added: ";
+    sp1.printAllMembers();
     std::cout << std::endl;
 
-    std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
-	std::cout << PINK << "/*            Testing addNumber, with numbers outside int range                */" << RESET << std::endl;
-	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
-    Span spRange = Span(5);
-    try 
-    {
-        spRange.addNumber(std::numeric_limits<int>::max() + 2);
-    }
-    catch(std::exception &e)
-    {
-        std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
-    }
-    std::cout << std::endl;
+
 
 
     std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
 	std::cout << PINK << "/*                      Testing Span with 20,000 random numbers                */" << RESET << std::endl;
 	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
-
-
     std::srand(std::time(NULL));
     const int LARGE_SIZE = 30000;
     Span spLarge(20000);
-
     try
     {
         for (int i = 0; i < LARGE_SIZE; ++i)
@@ -90,24 +77,8 @@ int main()
     {
         std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
     }
-
+    std::cout << "Span size: " << spLarge.getSizeVector();
     std::cout << std::endl;
-
-
-
-    std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
-	std::cout << PINK << "/*                      Testing Span with 20,000 random numbers                */" << RESET << std::endl;
-	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
-    Span empty = Span(0);
-    try 
-    {
-        std::cout << "Shortest span: " << empty.shortestSpan() << std::endl;
-        std::cout << "Longest span: " << empty.longestSpan() << std::endl;
-    }
-    catch(std::exception &e)
-    {
-        std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
-    }
 
     std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
 	std::cout << PINK << "/*                             Testing range for 1 element                     */" << RESET << std::endl;
@@ -122,7 +93,6 @@ int main()
     {
         std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
     }
-
     std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
 	std::cout << PINK << "/*                            Testing range for 0 elements                     */" << RESET << std::endl;
 	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
@@ -136,6 +106,5 @@ int main()
     {
         std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
     }
-
-    return 0;
+return 0;
 }
