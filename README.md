@@ -59,8 +59,6 @@
 
 
 --------
-Pending: implement OCF on ex01
-+ 1 element test
-+ 0 element test
-+ adding int max +1
-+ add check for greater than intmax and less than intmin
+Pending:
+ex01: added all validations, fix bugs: shortest span error
+ex02: check tests 

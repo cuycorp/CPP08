@@ -2,12 +2,11 @@
 /*for sort*/
 #include <algorithm>
 /*for int limits*/
-#include <limits.h>
+#include <limits>
 
 //OCD
 Span::Span(int unsigned N) : _N(N)
 {
-    //std::cout << "Default constructor called" << std::endl;
     return ;
 }
 
@@ -28,16 +27,16 @@ Span & Span::operator=(const Span &other)
 
 Span::~Span(void)
 {
-    //std::cout << "Destructor called" << std::endl;
     return ;
 }
-
 
 //Member functions
 void Span::addNumber(const int &n)
 {
     if (v.size() < getN())
         v.push_back(n);
+    else if(n > std::numeric_limits<int>::max())
+        throw std::runtime_error("Cannot add element outside with number outside of int range ");
     else 
         throw std::runtime_error("No more space, all elements have been added !");
 }
@@ -49,6 +48,8 @@ void Span::addNumber(containerIterator begin, containerIterator end)
     {
         if (v.size() < getN())
             v.push_back(*it);
+        else if(*it > std::numeric_limits<int>::max())
+            throw std::runtime_error("Cannot add element outside with number outside of int range !");
         else
             throw std::runtime_error("No more space, all elements have been added !");
     }
@@ -56,24 +57,32 @@ void Span::addNumber(containerIterator begin, containerIterator end)
 
 int Span::shortestSpan(void) const
 {
+    int min_span = std::numeric_limits<int>::max();
+    int span = 0;
     if (v.size() == 0 || v.size() == 1)
     {
-        throw std::runtime_error("No valid range value!");
+        throw std::runtime_error("Not enough elements to give span value!");
     }
     else
     {
-        std::vector<int> copy(v);
-        std::sort(copy.begin(), copy.end());
-        int range = *(copy.begin() + 1) - *(copy.begin());
-        return (range);
+        for (size_t i = 0; i < v.size() - 1; i++)
+        {
+            std::cout << "v[i  + 1]: " << v[i  + 1] << std::endl;
+            std::cout << "v[i ]: " << v[i  + 1] << std::endl;
+            span = v[i  + 1] - v[i];
+            if (span < min_span)
+                min_span = span;
+            
+        }
+        return (min_span);
     }
 }
 
-int Span::longestSpan(void) const //no numbers c.size
+int Span::longestSpan(void) const 
 {
     if (v.size() == 0 || v.size() == 1)
     {
-        throw std::runtime_error("No valid range value!");
+        throw std::runtime_error("Not enough elements to give span value!");
     }
     else
     {
@@ -84,7 +93,6 @@ int Span::longestSpan(void) const //no numbers c.size
     }
 }
 
-//getters and setters
 unsigned int Span::getN(void) const
 {
     return (_N);

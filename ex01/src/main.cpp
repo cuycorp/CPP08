@@ -10,7 +10,9 @@
 
 int main()
 {
-    std::cout << PINK << "Testing addNumber, which adds element by element" <<  RESET << std::endl;
+    std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
+	std::cout << PINK << "/*            Testing addNumber, which adds element by element                  */" << RESET << std::endl;
+	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
     Span sp = Span(5);
     try 
     {
@@ -19,17 +21,18 @@ int main()
         sp.addNumber(17);
         sp.addNumber(9);
         sp.addNumber(11);
+        std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "longest span: "<< sp.longestSpan() << std::endl;
     }
     catch(std::exception &e)
     {
         std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
     }
-    std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
-    std::cout << "longest span: "<< sp.longestSpan() << std::endl;
     std::cout << std::endl;
 
-    
-    std::cout << PINK <<"Testing addNumber, which adds element from container" << RESET << std::endl;
+    std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
+	std::cout << PINK << "/*        Testing addNumber, which adds element from container                */" << RESET << std::endl;
+	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
     int arr[] = {0, 23, 1, 5};
     std::vector<int> va(arr, arr + 4);
 
@@ -42,16 +45,36 @@ int main()
     try 
     {
         sp1.addNumber(va.begin(), va.end());
+        std::cout << "shortest span: " << sp1.shortestSpan() << std::endl;
+        std::cout << "longest span: " << sp1.longestSpan() << std::endl;
     }
     catch(std::exception &e)
     {
         std::cout << RED << "Caught: " << e.what() << RESET<< std::endl;
     }
-    std::cout << "shortest span: " << sp1.shortestSpan() << std::endl;
-    std::cout << "longest span: " << sp1.longestSpan() << std::endl;
+
     std::cout << std::endl;
 
-    std::cout << PINK << "Testing Span with 20,000 random numbers" << RESET << std::endl;
+    std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
+	std::cout << PINK << "/*            Testing addNumber, with numbers outside int range                */" << RESET << std::endl;
+	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
+    Span spRange = Span(5);
+    try 
+    {
+        spRange.addNumber(std::numeric_limits<int>::max() + 2);
+    }
+    catch(std::exception &e)
+    {
+        std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
+    }
+    std::cout << std::endl;
+
+
+    std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
+	std::cout << PINK << "/*                      Testing Span with 20,000 random numbers                */" << RESET << std::endl;
+	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
+
+
     std::srand(std::time(NULL));
     const int LARGE_SIZE = 30000;
     Span spLarge(20000);
@@ -60,18 +83,21 @@ int main()
     {
         for (int i = 0; i < LARGE_SIZE; ++i)
             spLarge.addNumber(std::rand()); // add random numbers
+        std::cout << "Shortest span: " << spLarge.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << spLarge.longestSpan() << std::endl;
     }
     catch(std::exception &e)
     {
         std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
     }
-    std::cout << "Shortest span: " << spLarge.shortestSpan() << std::endl;
-    std::cout << "Longest span: " << spLarge.longestSpan() << std::endl;
+
     std::cout << std::endl;
 
 
 
-    std::cout << PINK <<"Testing shortest and longest span, non valid range" << RESET << std::endl;
+    std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
+	std::cout << PINK << "/*                      Testing Span with 20,000 random numbers                */" << RESET << std::endl;
+	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
     Span empty = Span(0);
     try 
     {
@@ -83,7 +109,9 @@ int main()
         std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
     }
 
-    std::cout << PINK <<"Testing range for 1 element" << RESET << std::endl;
+    std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
+	std::cout << PINK << "/*                             Testing range for 1 element                     */" << RESET << std::endl;
+	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
     Span spanOne = Span(1);
     try 
     {
@@ -95,7 +123,9 @@ int main()
         std::cout << RED << "Caught: " << e.what() << RESET << std::endl;
     }
 
-    std::cout << PINK <<"Testing range for 0 elements" << RESET << std::endl;
+    std::cout << PINK << "\n/* ************************************************************************** */" << RESET << std ::endl;
+	std::cout << PINK << "/*                            Testing range for 0 elements                     */" << RESET << std::endl;
+	std::cout << PINK << "/* ************************************************************************** */" << RESET << std ::endl;;
     Span spanZero = Span(0);
     try 
     {
