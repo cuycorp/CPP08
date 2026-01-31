@@ -4,6 +4,8 @@
 #define PINK    "\033[35m"
 #define RED     "\033[31m"
 
+
+
 int main()
 {
     MutantStack<int>  mstack;
@@ -56,3 +58,39 @@ int main()
 
     return 0;
 }
+
+/*
+#include <vector>
+int main()
+{
+
+    std::vector<int>  mstack;
+    mstack.push_back(5);
+    mstack.push_back(17);
+
+    std::cout << "Current stack top: " << mstack.back() << std::endl;
+    mstack.pop_back();
+    
+    std::cout << "Current stack size: "<< mstack.size() << std::endl;
+    mstack.push_back(3);
+    mstack.push_back(5);
+    mstack.push_back(737);
+    mstack.push_back(0);
+    
+    std::vector<int>::iterator it = mstack.begin();
+    std::cout << "Beggining element: " << *it << std::endl;
+    std::vector<int>::iterator ite = mstack.end();
+    std::cout << "Ending element: " << *(ite--) << std::endl;
+    ++it;
+    --it;
+    std::cout << "Current stack size: "<< mstack.size() << std::endl;
+    std::cout << "Printing stack elements: "<< mstack.size() << std::endl;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+    std::cout << "Current stack top: " << mstack.back() << std::endl;
+}
+
+*/
